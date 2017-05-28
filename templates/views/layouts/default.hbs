@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Carrie Coxwell | Web Developer in Memphis, TN</title>
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Open+Sans:300,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="/styles/site.css" rel="stylesheet">
+		{{{isAdminEditorCSS user}}}
+	</head>
+	<body>
+		<header>
+			<div class="navbar-fixed">
+				<nav role="navigation">
+			    <div class="nav-wrapper container">
+			      <a href="/" class="brand-logo">
+							<img src="/images/logo.svg" class="hide-on-small-only" />
+							<img src="/images/logo_icon_only.svg" class="hide-on-med-and-up" />
+						</a>
+			      <ul id="right-nav" class="right hide-on-med-and-down">
+							{{# each navLinks}}
+								<li {{#ifeq ../section key}}class="waves-effect active"{{else}}class="waves-effect"{{/ifeq}}>
+									<a href="{{ href }}">{{ label }}</a>
+								</li>
+							{{/each}}
+			      </ul>
+						<ul id="mobile-nav" class="side-nav">
+							{{# each navLinks}}
+								<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+									<a href="{{ href }}">{{ label }}</a>
+								</li>
+							{{/each}}
+			      </ul>
+						<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+			    </div>
+			  </nav>
+			</div>
+		</header>
+		<main id="body">
+			{{#if messages}}
+			<section id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+						{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+						{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+						{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+						{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</section>
+			{{/if}}
+			<!-- The content block should contain the body of your template's content-->
+			{{{body}}}
+		</main>
+		<footer class="page-footer">
+			<section class="container">
+				<div class="row">
+				<div class="col m5 s12">
+					<div class="social">
+						<a href="https://www.linkedin.com/in/carriecoxwell" target="_blank">
+							<img src="/images/social/linkedin.svg" />
+						</a>
+						<a href="https://www.instagram.com/carriecoxwell/" target="_blank">
+							<img src="/images/social/insta.svg" />
+						</a>
+						<a href="http://www.last.fm/user/carrie721" target="_blank">
+							<img src="/images/social/lastfm.svg" />
+						</a>
+						<a href="https://www.flickr.com/photos/squeakier" target="_blank">
+							<img src="/images/social/flickr.svg" />
+						</a>
+					</div>
+				</div>
+					<div class="col m7 s12 credit">
+						<ul>
+							<li>Built with KeystoneJS and MaterializeCSS.</li>
+							<li>Wordmark by <a href="http://christopherbacks.com">Christopher Backs</a>.</li>
+							<li>Icons by <a href="https://www.iconfinder.com/iconsets/social-flat" target="_blank">Last Spark</a>.</li>
+							{{#if user}}
+							<li><a href="/keystone/signout">Sign Out</a></li>
+							{{/if}}
+						</ul>
+					</div>
+				</div>
+			</section>
+		</footer>
+		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
+		<script src="/js/materialize/bin/materialize.js"></script>
+		<script src="/js/scripts.js"></script>
+		{{{isAdminEditorJS user}}}
+	</body>
+</html>

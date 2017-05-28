@@ -1,0 +1,22 @@
+.card {
+  color: white;
+
+  .card-title {
+    font-weight: 400;
+  }
+
+  .collapsible li {
+    background-color: color("deep-purple", "lighten-1")!important;
+  }
+
+  .collapsible-header {
+    background-color: color("deep-purple", "base");
+  }
+
+  .job-role {
+    font-style: italic;
+    @media(min-width: $small-screen-up) {
+      text-align: right;
+    }
+  }
+}

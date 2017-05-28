@@ -1,0 +1,42 @@
+<section class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1 id="blog-title">Lump On A Blog</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12 m9">
+			<div class="blog">
+				{{# each data.posts.results}}
+				<article data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
+					<p>{{{content.brief.html}}}</p>
+					<p>{{{content.extended.html}}}</p>
+				</article>
+				{{/each}}
+			</div>
+		</div>
+		<div class="col m3 hide-on-small-only">
+			<section id="blog-categories">
+				<h2>Categories</h2>
+				<ul class="collection">
+				{{# each data.categories }}
+						<li class="collection-item">
+							<a href="{{categoryUrl key}}">{{name}}</a>
+							<span class="badge">{{{key.postCount}}}</span>
+						</li>
+				{{/each}}
+			</section>
+		</div>
+	</div>
+		<!-- <div class="col-sm-4 col-md-3">
+			<h2>Categories</h2>
+			<div style="margin-top: 70px;" class="list-group">
+				{{# each data.categories }}
+				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
+				{{/each}}
+			</div>
+		</div>
+	</div> -->
+	{{>pagination}}
+</section>

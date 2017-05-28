@@ -1,0 +1,19 @@
+img.img-me {
+  width: 250px;
+  margin-top: 25px;
+}
+
+div.img-me {
+  @media (min-width: $small-screen-up) {
+    float: right;
+  }
+  display: inline-block;
+  @media (max-width: $small-screen) {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+img {
+  max-width: 100%;
+}
